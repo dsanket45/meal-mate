@@ -5,6 +5,187 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout</title>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <style>
+        /* General styles */
+        body {
+            background-image: url('https://www.transparenttextures.com/patterns/paper.png');
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 10px 10px;
+            padding: 10px;
+            {% comment %} background-color: #F7E4E0; {% endcomment %}
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Headings */
+        h1, h2, h3 {
+            text-align: center;
+            color:rgb(7, 23, 65);
+            animation: slideDown 0.6s ease forwards;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Links */
+        a {
+            text-decoration: none;
+            color:rgb(8, 31, 74);
+            font-weight: bold;
+            margin: 0 10px;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+        }
+
+        a:hover {
+            color: #8BA6E9;
+            transform: scale(1.1);
+        }
+
+        /* Buttons */
+        button {
+            background-color:rgb(6, 27, 80);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #7E96C4;
+            transform: translateY(-2px);
+        }
+
+        /* Forms */
+        form {
+            background-color: white;
+            border: 2px solid #D7B7BC;
+            border-radius: 12px;
+            padding: 25px;
+            width: 85%;
+            max-width: 500px;
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+            margin: 20px auto;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="url"],
+        input[type="number"],
+        input[type="email"],
+        input[type="password"],
+        textarea {
+            width: 95%;
+            padding: 12px;
+            margin-bottom: 18px;
+            border: 1px solid #D7B7BC;
+            border-radius: 6px;
+            font-size: 15px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #8BA6E9;
+            box-shadow: 0 0 8px rgba(139, 166, 233, 0.4);
+            outline: none;
+        }
+
+        textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        /* Tables */
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            margin: 20px 20px;
+            background-color: white;
+            border: px solid rgb(255, 255, 255);
+            border-radius: 10px;
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            animation: fadeIn 1s ease-in;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #D7B7BC;
+            transition: background-color 0.3s ease;
+        }
+
+        th {
+            background-color:rgb(6, 27, 68);
+            color: white;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #F7E4E0;
+        }
+
+        tr:hover {
+            background-color: #f2d5d0;
+        }
+
+        /* Images */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            margin: 12px 0;
+            transition: transform 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.03);
+        }
+
+        /* Center alignment for specific elements */
+        h1, h2, h3, table, form {
+            margin: 0 auto;
+        }
+
+        /* Additional spacing for elements */
+        a, button {
+            margin: 12px;
+        }
+
+        /* Add subtle animation on hover */
+        input:hover, textarea:hover {
+            border-color: #bfa4a8;
+        }
+
+        /* Smooth page transitions */
+        * {
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+    </style>
 </head>
 <body>
     <h1>Checkout</h1>
@@ -13,7 +194,7 @@
     {% if error %}
     <p style="color: red;">{{ error }}</p>
     {% else %}
-    <table border="1">
+    <table>
         <thead>
             <tr>
                 <th>Item</th>
@@ -57,12 +238,11 @@
             }
         };
         var rzp = new Razorpay(options);
-    
+
         document.getElementById('rzp-button').onclick = function(e) {
             rzp.open();
             e.preventDefault();
         }
     </script>
-    
 </body>
 </html>

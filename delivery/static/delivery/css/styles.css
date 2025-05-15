@@ -1,62 +1,81 @@
+
 /* General styles */
 body {
-    font-family: Arial, sans-serif; /* Standard font */
+    background-image: url('https://www.transparenttextures.com/patterns/paper.png');
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #F7E4E0; /* Light background color */
-    color: #333; /* Neutral text color for good readability */
+    color: #333;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center-align all content */
+    align-items: center;
     justify-content: center;
-    min-height: 100vh; /* Full height */
+    min-height: 100vh;
+    overflow-x: hidden;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Headings */
 h1, h2, h3 {
     text-align: center;
-    color: #8BA6E9; /* Primary blue shade */
+    color: #061948;
+    animation: slideDown 0.6s ease forwards;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
 /* Links */
 a {
     text-decoration: none;
-    color: #7E96C4; /* Secondary blue shade */
+    color: #09214e;
     font-weight: bold;
     margin: 0 10px;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
 }
 
 a:hover {
-    color: #8BA6E9; /* Lighter blue on hover */
+    color: #485f98;
+    transform: scale(1.1);
 }
 
 /* Buttons */
 button {
-    background-color: #8BA6E9; /* Button background */
+    background-color: #071433;
     color: white;
     border: none;
     padding: 10px 15px;
     font-size: 16px;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 2px 4px 8px rgba(0,0,0,0.2);
 }
 
 button:hover {
-    background-color: #7E96C4; /* Slightly darker shade on hover */
+    background-color: #7E96C4;
+    transform: translateY(-2px);
 }
 
 /* Forms */
 form {
     background-color: white;
-    border: 2px solid #D7B7BC; /* Light border */
-    border-radius: 10px;
-    padding: 20px;
-    width: 80%;
-    max-width: 500px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    border: 2px solid #110862;
+    border-radius: 16px;
+    padding: 30px;
+    width: 85%;
+    max-width: 520px;
+    box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.2);
     margin: 20px auto;
+    animation: fadeIn 0.8s ease-in;
 }
 
 label {
@@ -72,51 +91,92 @@ input[type="email"],
 input[type="password"],
 textarea {
     width: 95%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #D7B7BC; /* Subtle border */
-    border-radius: 5px;
-    font-size: 14px;
+    padding: 14px;
+    margin-bottom: 18px;
+    border: 1px solid #5fadf0;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff5f5;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #18f907;
+    box-shadow: 0 0 10px rgba(139, 166, 233, 0.4);
+    outline: none;
 }
 
 textarea {
     resize: none;
-    height: 80px;
+    height: 100px;
+}
+
+/* Boxes */
+.box {
+    background-color: #ffffffcc;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 90%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
 /* Tables */
 table {
     border-collapse: collapse;
-    width: 90%;
+    width: 70%;
     margin: 20px auto;
     background-color: white;
-    border: 2px solid #D7B7BC; /* Subtle border */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    border: 2px solid #D7B7BC;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
     text-align: left;
+    animation: fadeIn 1s ease-in;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 th, td {
-    padding: 10px;
-    border: 1px solid #D7B7BC; /* Subtle cell border */
+    padding: 12px;
+    border: 1px solid #060606;
+    transition: background-color 0.3s ease;
 }
 
 th {
-    background-color: #BED0F4; /* Table header color */
+    background-color: #05303e;
     color: white;
     font-weight: bold;
     text-align: center;
 }
 
 tr:nth-child(even) {
-    background-color: #F7E4E0; /* Alternate row color */
+    background-color: #7e7f7f9c;
+}
+
+tr:hover {
+    background-color: #e0e0e0;
 }
 
 /* Images */
 img {
     max-width: 100%;
     height: auto;
-    border-radius: 5px;
-    margin: 10px 0;
+    border-radius: 8px;
+    margin: 12px 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.1);
+}
+
+img:hover {
+    transform: scale(1.05);
+    box-shadow: 2px 6px 12px rgba(0,0,0,0.2);
 }
 
 /* Center alignment for specific elements */
@@ -126,6 +186,16 @@ h1, h2, h3, table, form {
 
 /* Additional spacing for elements */
 a, button {
-    margin: 10px;
+    margin: 12px;
 }
 
+/* Add subtle animation on hover */
+input:hover, textarea:hover {
+    border-color: #4c62f0;
+}
+
+/* Smooth page transitions */
+* {
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}

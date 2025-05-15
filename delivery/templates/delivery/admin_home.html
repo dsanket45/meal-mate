@@ -6,12 +6,33 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'delivery/css/styles.css' %}">
     <title>Admin HOME</title>
+    <style>
+        .o{
+            border:2px solid black;
+            margin:30px;
+            padding:60px;
+            border-radius: 10px ;
+            background-color:white;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            flex-direction:column;
+        }
+        h1{
+            font-size:40px;
+        }
+        img {
+  background-color: transparent;
+}
+
+    </style>
 </head>
 <body>
-
+<div class="o">
     <h1>Welcome ADMIN!</h1>
     <a href="{% url 'add_restaurant_page' %}">Add new Restaurant</a>
     <a href="{% url 'show_restaurant_page' %}">Show Restaurants</a>
-
+    {% comment %} <a href="userdata.html" > User data </a> {% endcomment %}
+</div>
 </body>
 </html>

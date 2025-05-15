@@ -6,10 +6,35 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'delivery/css/styles.css' %}">
     <title>Welcome page</title>
+    <style>
+        .o{
+            border:2px solid black;
+            margin:30px;
+            padding:60px;
+            border-radius: 10px ;
+            background-color:white;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            flex-direction:column;
+        }
+        h1{
+            font-size:40px;
+        }
+        img {
+  background-color: transparent;
+}
+
+    </style>
 </head>
 <body>
-    <h2>Welcome to Meal-Mate</h2>
-    <a href="signin/">SIGN IN</a>
-    <a href="signup/">SIGN UP</a>
+    <div class=o>
+        <img src="https://app.kodnest.com/svgs/welcome-illustration.svg">
+    <h1>Welcome to Meal-Mate</h1>
+  
+     <a href="signin/">SIGN IN</a>  
+    <a href="signup/">SIGN UP</a>  
+    </div>
+
 </body>
 </html>
